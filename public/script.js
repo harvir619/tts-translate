@@ -10,6 +10,17 @@ const languages = [
   { code: 'fr', name: 'French' },
   { code: 'de', name: 'German' },
   { code: 'it', name: 'Italian' },
+  { code: 'ko', name: 'Korean' },
+  { code: 'ja', name: 'Japanese' },
+  { code: 'ko', name: 'Korean' },
+  { code: 'pt', name: 'Portuguese' },
+  { code: 'ru', name: 'Russian' },
+  { code: 'ar', name: 'Arabic' },
+  { code: 'hi', name: 'Hindi' },
+  { code: 'nl', name: 'Dutch' },
+  { code: 'zh-HK', name: 'Cantonese (Hong Kong)' },
+  { code: 'zh-CN', name: 'Chinese (Simplified)' },
+  { code: 'zh-TW', name: 'Chinese (Traditional)' },
 ];
 
 // Populate language select box
@@ -17,6 +28,10 @@ languages.forEach(({ code, name }) => {
   const option = document.createElement('option');
   option.value = code;
   option.textContent = name;
+  // Set the default selected option to Chinese (Simplified)
+  if (code === 'zh-HK') {
+    option.selected = true;
+  }  
   languageSelect.appendChild(option);
 });
 
@@ -25,10 +40,11 @@ let voices = [];
 function loadVoices() {
   voices = speechSynthesis.getVoices();
   voiceSelect.innerHTML = voices
-    .map(
-      (voice, index) =>
-        `<option value="${index}">${voice.name} (${voice.lang})</option>`
-    )
+    .map((voice, index) => {
+      // Check if the voice is Chinese (Simplified) and set it as selected
+      const isSelected = voice.lang === 'zh-HK' ? 'selected' : '';
+      return `<option value="${index}" ${isSelected}>${voice.name} (${voice.lang})</option>`;
+    })
     .join('');
 }
 
