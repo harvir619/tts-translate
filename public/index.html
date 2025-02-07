@@ -6,43 +6,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css" />
-  <title>AI Translation Web App</title>
+  <title>Rover AI Voice App</title>
 </head>
 
-<body class="bg-sky-100 flex items-center justify-center h-screen">
-  <div class="bg-teal-500/100 shadow-md rounded-lg p-6 max-w-md w-full">
-    <h1 class="text-2xl font-semibold text-white text-center mb-4">
-      AI Translation App
+<body class="bg-gradient-to-br from-sky-200 to-teal-300 flex items-center justify-center h-screen">
+  <div class="bg-teal-600 shadow-lg rounded-lg p-6 max-w-md w-full">
+    <h1 class="text-3xl font-bold text-white text-center mb-4">
+      Rover AI Voice App
     </h1>
 
     <!-- Text Input -->
-    <textarea
-      class="w-full h-32 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-      placeholder="Type your words here...."></textarea>
+    <textarea id="textInput" aria-label="Enter text for Rover to speak"
+      class="w-full h-32 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400 resize-none placeholder-gray-400"
+      placeholder="Type what you want Rover to say..."></textarea>
 
     <!-- Language Selection -->
     <div class="mt-4">
-      <label for="languageSelect" class="block text-sm font-medium text-gray-700 mb-2">Language</label>
+      <label for="languageSelect" class="block text-sm font-medium text-white mb-2">Select Language</label>
       <select id="languageSelect"
-        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></select>
+        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400 bg-white">
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+      </select>
     </div>
 
     <!-- Voice Selection -->
     <div class="mt-4">
-      <label for="voiceSelect" class="block text-sm font-medium text-gray-700 mb-2">Voice</label>
+      <label for="voiceSelect" class="block text-sm font-medium text-white mb-2">Choose a Voice</label>
       <select id="voiceSelect"
-        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400 bg-white">
         <option value="default">Default Voice</option>
-        <option value="voice1">Voice 1</option>
-        <option value="voice2">Voice 2</option>
+        <option value="male">Male Voice</option>
+        <option value="female">Female Voice</option>
       </select>
     </div>
 
     <!-- Play Button -->
-    <button
-      class="mt-6 w-full bg-white hover:bg-emerald-600 text-black font-medium py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-      id="playButton">
-      RoboDog Speak
+    <button id="playButton" type="button"
+      class="mt-6 w-full bg-emerald-500 hover:bg-emerald-700 text-white font-bold py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white transition duration-300">
+      🐶 Speak Now
     </button>
   </div>
 

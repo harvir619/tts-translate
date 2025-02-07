@@ -109,3 +109,10 @@ playButton.addEventListener('click', async () => {
     alert('An error occurred');
   }
 });
+
+playButton.addEventListener('touchstart', (event) => {
+  event.preventDefault(); // Prevent default behavior
+  handleButtonClick(); // Your function to handle button click
+});
+
+playButton.addEventListener('click', handleButtonClick);
