@@ -88,8 +88,8 @@ function playText(text, voiceIndex) {
   speechSynthesis.speak(utterance);
 }
 
-// Play TTS
-playButton.addEventListener('click', async () => {
+// Handle button interaction
+async function handleButtonClick() {
   const text = textInput.value.trim();
   const targetLang = languageSelect.value;
   const selectedVoiceIndex = voiceSelect.value;
@@ -108,11 +108,11 @@ playButton.addEventListener('click', async () => {
     console.error('Error during processing: ', error);
     alert('An error occurred');
   }
-});
+}
 
-playButton.addEventListener('touchstart', (event) => {
-  event.preventDefault(); // Prevent default behavior
-  handleButtonClick(); // Your function to handle button click
-});
-
+// Add event listeners for both click and touch events
 playButton.addEventListener('click', handleButtonClick);
+playButton.addEventListener('touchend', (event) => {
+  event.preventDefault(); // Prevent default behavior
+  handleButtonClick();
+});
